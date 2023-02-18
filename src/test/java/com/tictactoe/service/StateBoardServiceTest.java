@@ -24,4 +24,15 @@ public class StateBoardServiceTest {
         Assertions.assertEquals(board.get(index), oPlayer.getMark().getValue());
 
     }
+
+    @Test
+    public void changeState_throwsException(){
+        Integer index = 10;
+        Player oPlayer = new Player(Mark.X);
+
+        Assertions.assertThrows(RuntimeException.class,()->{
+            stateBoardService.markCell(index, oPlayer);
+        });
+
+    }
 }
