@@ -1,5 +1,6 @@
 package com.tictactoe.service;
 
+import com.tictactoe.model.Board;
 import com.tictactoe.model.Mark;
 import com.tictactoe.model.Player;
 import org.junit.Before;
@@ -34,6 +35,19 @@ public class StateBoardServiceTest {
         Assertions.assertThrows(RuntimeException.class,()->{
             stateBoardService.markCell(index, oPlayer);
         });
+    }
 
+    @Test
+    public void isBoardDoneTest_unDoneBoard(){
+        StateBoardService stateBoardService = new StateBoardService();
+        Board board = new Board(null, Mark.X, Mark.O, Mark.X,Mark.O, Mark.X, null, Mark.O, null);
+        Assertions.assertEquals(stateBoardService.isBoardDone(board), false);
+    }
+
+    @Test
+    public void isBoardDoneTest_doneBoard(){
+        StateBoardService stateBoardService = new StateBoardService();
+        Board board = new Board(Mark.X, Mark.X, Mark.O, Mark.X,Mark.O, Mark.X, Mark.O, Mark.O, Mark.O);
+        Assertions.assertEquals(stateBoardService.isBoardDone(board), true);
     }
 }

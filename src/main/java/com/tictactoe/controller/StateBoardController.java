@@ -27,7 +27,7 @@ public class StateBoardController {
 
     @GetMapping("/getBoard")
     public Map<Integer,String> getBoard(){
-        return stateBoardService.getBoard();
+        return null;
     }
 
 }
