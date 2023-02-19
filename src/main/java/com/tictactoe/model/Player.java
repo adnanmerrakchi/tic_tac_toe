@@ -1,9 +1,15 @@
 package com.tictactoe.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Player {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nickName;
+    @Enumerated(EnumType.STRING)
     private Mark mark;
 
     public Player() {
