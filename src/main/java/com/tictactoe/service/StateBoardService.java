@@ -1,10 +1,12 @@
 package com.tictactoe.service;
 
 import com.tictactoe.model.Player;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Service
 public class StateBoardService {
 
     Map<Integer, String> board;
@@ -26,6 +28,10 @@ public class StateBoardService {
             throw new RuntimeException("the " + index + " out of indexes");
         }
         this.board.put(index, oPlayer.getMark().getValue());
+        return board;
+    }
+
+    public Map<Integer, String> getBoard() {
         return board;
     }
 }
