@@ -20,7 +20,12 @@ public class StateBoardService {
     }
 
     public Boolean isBoardDone(Board board){
-        return null;
+        if( board.getCell1() == null || board.getCell2() == null ||board.getCell3() == null ||
+            board.getCell4() == null ||board.getCell5() == null ||board.getCell6() == null ||
+            board.getCell7() == null ||board.getCell8() == null ||board.getCell9() == null ){
+            return false;
+        }
+        return true;
     }
 
 }
